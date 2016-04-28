@@ -1,0 +1,28 @@
+@import "bootstrap_custom";
+
+.navbar{
+    margin: 0;
+}
+.row{
+    margin-bottom: 0px;
+}
+
+html{
+     position: relative;
+    min-height: 100%;
+}
+
+body{
+margin-bottom: 60px;
+}
+
+footer{
+    height: 60px;
+    bottom: 0;
+    padding: 15px 0;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #E7E9F0;
+
+}
