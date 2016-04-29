@@ -3,8 +3,7 @@ import {ROUTER_DIRECTIVES} from "angular2/router";
 
 @Component({
     
-    //enable external dashboard-file to see how much slower the routeroutlet is visible
-	//templateUrl:"dashboard/dashboard.component.html"
+    //templateUrl:"/dashboard/dashboard.component.html"
     template:`
     <div class="col-sm-4 gray text-center">
         <h2>Angular2-Starter</h2>

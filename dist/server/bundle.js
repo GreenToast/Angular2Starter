@@ -216,8 +216,7 @@
 	    DashboardComponent = __decorate([
 	        core_1.Component({
 	            //enable external dashboard-file to see how much slower the routeroutlet is visible
-	            //templateUrl:"dashboard/dashboard.component.html"
-	            template: "\n    <div class=\"col-sm-4 gray text-center\">\n        <h2>Angular2-Starter</h2>\n        <p>Lorem ipsum dolor sit. Donec erat nulla.</p>\n        <button class=\"btn btn-default\">Test</button>\n    </div>\n    ",
+	            templateUrl: "/dashboard/dashboard.component.html",
 	            directives: [router_1.ROUTER_DIRECTIVES]
 	        }), 
 	        __metadata('design:paramtypes', [])
@@ -249,8 +248,42 @@
 	    NavbarComponent = __decorate([
 	        core_1.Component({
 	            selector: "nav-bar",
-	            templateUrl: "navigation/navbar.html",
-	            template: "\n        <div class=\"navigation\">\n            <div class=\"container\">\n                <nav class=\"navbar navbar-inverse\" role=\"navigation\">\n                    <div class=\"navbar-header\">\n                        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#navbar-collapse\">\n                            <span class=\"sr-only\">Toggle Navigation</span>\n                            <span class=\"icon-bar\"></span>\n                            <span class=\"icon-bar\"></span>\n                            <span class=\"icon-bar\"></span>\n                        </button>\n                        <a class=\"navbar-brand\" [routerLink]=\"['Dashboard']\">\n                        </a>\n                        <a [routerLink]=\"['Dashboard']\" class=\"navbar-text\">Angular2-Starter</a>\n                    </div>\n\n                    <div class=\"collapse navbar-collapse\" id=\"navbar-collapse\">\n                        <ul class=\" pull-right nav navbar-nav\">\n                            <li><a [routerLink]=\"['Dashboard']\">Dashboard</a></li>\n                            <li><a [routerLink]=\"['About']\">About</a></li>\n                            <!--li><a [routerLink]=\"['CreateAlbum']\">Create Album</a></li-->\n                            <li><a href=\"#\" class=\"\">Log out</a></li>\n                        </ul>\n\n                        <ul class=\"nav navbar-nav navbar-right\">\n                            <li class=\"loader\" if.bind=\"router.isNavigating\">\n                                <i class=\"fa fa-spinner fa-spin fa-2x\"></i>\n                            </li>\n                        </ul>\n                    </div>\n\n                </nav>\n            </div>\n        </div>\n        ",
+	            templateUrl: "/navigation/navbar.html",
+	            /*template: `
+	                <div class="navigation">
+	                    <div class="container">
+	                        <nav class="navbar navbar-inverse" role="navigation">
+	                            <div class="navbar-header">
+	                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+	                                    <span class="sr-only">Toggle Navigation</span>
+	                                    <span class="icon-bar"></span>
+	                                    <span class="icon-bar"></span>
+	                                    <span class="icon-bar"></span>
+	                                </button>
+	                                <a class="navbar-brand" [routerLink]="['Dashboard']">
+	                                </a>
+	                                <a [routerLink]="['Dashboard']" class="navbar-text">Angular2-Starter</a>
+	                            </div>
+	        
+	                            <div class="collapse navbar-collapse" id="navbar-collapse">
+	                                <ul class=" pull-right nav navbar-nav">
+	                                    <li><a [routerLink]="['Dashboard']">Dashboard</a></li>
+	                                    <li><a [routerLink]="['About']">About</a></li>
+	                                    <!--li><a [routerLink]="['CreateAlbum']">Create Album</a></li-->
+	                                    <li><a href="#" class="">Log out</a></li>
+	                                </ul>
+	        
+	                                <ul class="nav navbar-nav navbar-right">
+	                                    <li class="loader" if.bind="router.isNavigating">
+	                                        <i class="fa fa-spinner fa-spin fa-2x"></i>
+	                                    </li>
+	                                </ul>
+	                            </div>
+	        
+	                        </nav>
+	                    </div>
+	                </div>
+	                `,*/
 	            directives: [router_1.ROUTER_DIRECTIVES],
 	            changeDetection: core_1.ChangeDetectionStrategy.OnPush
 	        }), 
