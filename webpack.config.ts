@@ -1,8 +1,9 @@
 var LiveReloadPlugin = require('webpack-livereload-plugin'),
     webpack = require('webpack'),
     path = require('path');
-
-module.exports = {
+var config;
+export = config;
+config = {
   resolve: {
     extensions: ['', '.scss', '.ts', '.js', '.woff2', '.tff', '.eot', '.svg']
   },
