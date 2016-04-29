@@ -10,5 +10,5 @@ export class Config{
  
 export declare var devServer: Config;
 export declare var prodServer: Config;
-devServer =  new Config(false, false, true, 'http://localhost', 8080);
+devServer =  new Config(false, true, true, 'http://localhost', 8080);
 prodServer = new Config(true, true, true, 'http://localhost', 8080); 
