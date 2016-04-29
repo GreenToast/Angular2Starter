@@ -35,9 +35,9 @@ var clientConfig = {
 
 var serverConfig = {
   target: 'node',
-  entry: './dev-server',
+  entry: './server/server',
   output: {
-    path: path.join(__dirname, 'dist', 'server')
+    path: path.join(__dirname, '.release', 'server')
   },
   externals: checkNodeImport,
   node: {
