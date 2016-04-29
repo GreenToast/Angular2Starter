@@ -34,5 +34,5 @@ app.use(webpackMiddleware(webpack(webpackconfig)));
 var server = app.listen(port, function () {
   var host = server.address().address;
 
-  console.log('ProducerPro listening at http://%s:%s', host, port);
+  console.log('Angular2Starter listening at http://%s:%s', host, port);
 });

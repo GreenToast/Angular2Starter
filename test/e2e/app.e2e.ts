@@ -1,7 +1,7 @@
 ///<reference path="e2etest-tsd.d.ts"/>
 import {E2eConfig,devlocalConfig} from './e2e.config';
 
-describe('ProducerPro-App', function() {
+describe('Angular2Starter-App', function() {
   beforeAll(function() {
     browser.get(devlocalConfig.baseUrl);
   });
@@ -9,7 +9,7 @@ describe('ProducerPro-App', function() {
 
   it('should have a title', function() {
     var subject = browser.getTitle();
-    var result  = 'ProducerPro';
+    var result  = 'Angular2Starter';
     expect(subject).toContain(result);
   });
 
