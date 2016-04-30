@@ -4,7 +4,7 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
 
-import { platform, provide, ApplicationRef, ComponentRef, Injector } from 'angular2/core';
+import { platform, provide, ApplicationRef, ComponentRef, Injector, enableProdMode } from 'angular2/core';
 import {
   WORKER_APP_PLATFORM,
   WORKER_APP_APPLICATION,
@@ -18,7 +18,11 @@ platform(WORKER_APP_PLATFORM).asyncApplication(() => Promise.resolve([
   WORKER_APP_ROUTER,
   provide(APP_BASE_HREF, { useValue: '/' }),
 ]))
-.then((appRef: ApplicationRef) => {
+.then((appRef: ApplicationRef) => {  
+  const PROD:boolean = `${enableProdMode}`=='true';
+  if(PROD){
+    enableProdMode();
+  }
   return appRef.bootstrap(AppComponent, []);
 })
 .then((compRef: ComponentRef) => {

@@ -12,7 +12,7 @@ export interface Preboot{
 type PrebootOptions = Preboot | boolean;
 
 export interface Config{
-    prodmode: boolean;
+    enableProdMode: boolean;
     renderServerSide: boolean;
     webWorker: boolean,
     preboot:Preboot,

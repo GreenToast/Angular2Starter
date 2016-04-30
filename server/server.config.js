@@ -1,14 +1,14 @@
 module.exports = {
     devServer: {
-        prodmode: false,
+        enableProdMode: true,
         renderServerSide: true,
-        webWorker:true,
+        webWorker: false,
         preboot: {appRoot : 'app'},
         baseUrl: 'http://localhost',
         port: 8080
     },
     prodServer: {
-        prodmode: true,
+        enableProdMode: true,
         renderServerSide: true,
         webWorker:false,
         baseUrl: 'http://localhost',

@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 
 import {bootstrap, enableProdMode, BROWSER_ROUTER_PROVIDERS, BROWSER_HTTP_PROVIDERS} from 'angular2-universal';
 
-//TODO make this configurable
-enableProdMode();
+if(ENABLEPRODMODE){
+  enableProdMode();
+}
 
 bootstrap(AppComponent, [
   ...BROWSER_ROUTER_PROVIDERS,

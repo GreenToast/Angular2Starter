@@ -33,3 +33,11 @@ baseConfig = {
     ]
   }
 }
+export function stringifyConstants(config) {
+  const stringifiedConstants = {};
+
+  Object.keys(config).forEach(function(configName) {
+    stringifiedConstants[configName.toUpperCase()] = JSON.stringify(config[configName]);
+  });
+  return stringifiedConstants;
+};

@@ -29,13 +29,14 @@ import { AppComponent } from '../app/app.component';
 
 const app = express();
 const APPROOT = path.join(path.resolve(__dirname, '../app'));
+const IS_PRODUCTION_SERVER:boolean = !(process.argv[2]==="-dev");
 
-let serverconfig: Config = process.argv[2]=="-dev"?devServer:prodServer;
-if (serverconfig.prodmode) {
-  enableProdMode();
-}
+let serverconfig: Config = IS_PRODUCTION_SERVER?prodServer:devServer;
 
 if (serverconfig.renderServerSide) {
+  if (serverconfig.enableProdMode) {
+    enableProdMode();
+  }
   app.engine('.html', expressEngine);
   app.set('view engine', 'html');
 
@@ -83,7 +84,7 @@ else {
   });
 }
 
-if (!serverconfig.prodmode) {
+if (!IS_PRODUCTION_SERVER) {
   if(!serverconfig.webWorker){
     app.use(webpackMiddleware(webpack(browser_config.BROWSER_CONFIG)));
   }
