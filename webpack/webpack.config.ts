@@ -1,5 +1,5 @@
-///<reference path="typings/browser.d.ts"/>
-///<reference path="customTypings/webpack-merge.d.ts"/>
+///<reference path="../typings/browser.d.ts"/>
+///<reference path="../customTypings/webpack-merge.d.ts"/>
 var LiveReloadPlugin = require('webpack-livereload-plugin'),
     webpack = require('webpack'),
     path = require('path')
