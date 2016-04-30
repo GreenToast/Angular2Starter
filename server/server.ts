@@ -2,7 +2,7 @@ import { devServer, prodServer, Config } from "./server.config";
 var port = process.env.port || devServer.port;
 //import * as http from "http";
 //import * as qs from "querystring";
-import * as webpackconfig from "../webpack.config";
+import * as browser_config from "../webpack-browser.config";
 import * as worker_app_config from "../webpack-app-worker.config";
 import * as webpack from "webpack";
 import webpackMiddleware = require("webpack-dev-middleware");
@@ -85,10 +85,11 @@ else {
 
 if (!serverconfig.prodmode) {
   if(!serverconfig.webWorker){
-    app.use(webpackMiddleware(webpack(webpackconfig)));
+    app.use(webpackMiddleware(webpack(browser_config.BROWSER_CONFIG)));
   }
   else{
-    app.use(webpackMiddleware(webpack([webpackconfig,worker_app_config])));
+    console.log(worker_app_config);
+    app.use(webpackMiddleware(webpack([worker_app_config.WORKER_BOOT_CONFIG,worker_app_config.WORKER_APP_CONFIG])));
   }
 }
 else {

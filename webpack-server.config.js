@@ -1,11 +1,16 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var commonConfig = {
+var defaultServerConfig = {
   resolve: {
+    root: path.join(__dirname, '/app'),
     extensions: ['', '.ts', '.js']
   },
   module: {
+    noParse: [
+      path.join(__dirname, 'zone.js', 'dist'),
+      path.join(__dirname, 'angular2', 'bundles')
+    ],
     loaders: [
       // TypeScript
       { test: /\.ts$/, loader: 'ts-loader' }
@@ -13,33 +18,12 @@ var commonConfig = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(true)
-  ]
-};
-
-/*
-var clientConfig = {
-  target: 'web',
-  entry: './src/client',
+  ],
+  context: __dirname,
   output: {
-    path: path.join(__dirname, 'dist', 'client')
+    publicPath: path.resolve(__dirname),
   },
-  node: {
-    global: true,
-    __dirname: true,
-    __filename: true,
-    process: true,
-    Buffer: false
-  }
-};
-*/
-
-var serverConfig = {
   target: 'node',
-  entry: './server/server',
-  output: {
-    path: path.join(__dirname, 'dist', 'server')
-  },
-  externals: checkNodeImport,
   node: {
     global: true,
     __dirname: true,
@@ -47,38 +31,9 @@ var serverConfig = {
     process: true,
     Buffer: true
   }
-};
-
-
-
-// Default config
-var defaultConfig = {
-  module: {
-    noParse: [
-      path.join(__dirname, 'zone.js', 'dist'),
-      path.join(__dirname, 'angular2', 'bundles')
-    ]
-  },
-  context: __dirname,
-  resolve: {
-    root: path.join(__dirname, '/app')
-  },
-  output: {
-    publicPath: path.resolve(__dirname),
-    filename: 'bundle.js'
-  }
 }
 
 
-
-var webpackMerge = require('webpack-merge');
-module.exports = [
-  // Client
- // webpackMerge({}, defaultConfig, commonConfig, clientConfig),
-
-  // Server
-  webpackMerge({}, defaultConfig, commonConfig, serverConfig)
-]
 
 // Helpers
 function checkNodeImport(context, request, cb) {
@@ -87,3 +42,5 @@ function checkNodeImport(context, request, cb) {
   }
   cb();
 }
+
+module.exports = {defaultServerConfig:defaultServerConfig, checkNodeImport:checkNodeImport};

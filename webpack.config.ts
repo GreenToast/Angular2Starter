@@ -1,24 +1,17 @@
+///<reference path="typings/browser.d.ts"/>
+///<reference path="customTypings/webpack-merge.d.ts"/>
 var LiveReloadPlugin = require('webpack-livereload-plugin'),
     webpack = require('webpack'),
-    path = require('path');
-var WORKER_CONFIG = {
+    path = require('path')
+export declare var baseConfig;
+baseConfig = {
   resolve: {
     extensions: ['', '.scss', '.ts', '.js', '.woff2', '.tff', '.eot', '.svg']
   },
-
   plugins: [
     new LiveReloadPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
-  //entry: './app/boot.ts',
-  entry: './app/boot_worker.ts',
-  output: {
-    path: __dirname + "/.build/app",
-    filename: "bundle.js"
-  },
-
-  devtool: 'source-map',
-
   module: {
     loaders: [
       {
@@ -39,5 +32,4 @@ var WORKER_CONFIG = {
       { test: /\.svg$/,    loader: "file-loader" }
     ]
   }
-};
-export = WORKER_CONFIG;
+}

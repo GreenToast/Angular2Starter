@@ -8,7 +8,7 @@ WORKER_BOOT_CONFIG = webpackMerge({},baseWebpackConfig.baseConfig,{
   target: 'web',
   entry: './app/boot_worker.ts',
   output: {
-    path: __dirname + "/.build/app",
+    path: __dirname + "/.release/app",
     filename: "bundle.js"
   },
 });
@@ -18,7 +18,7 @@ WORKER_APP_CONFIG = webpackMerge({},baseWebpackConfig.baseConfig,{
   target: 'webworker',
   entry: './app/boot_worker_app',
    output: {
-    path: __dirname + "/.build/app",
+    path: __dirname + "/.release/app",
     filename: "worker_app_bundle.js"
   },
 });
