@@ -10,6 +10,12 @@ Then run:
 $ npm install -g typings
 ```
 
+##Configuration##
+Enable/Disable options in server/server-config.js for dev and production
+- (prodmode: false/true, is not working completely in client-side-code)
+- renderServerSide: false/true,
+- webWorker: false/true,
+
 ##Setup##
 
 ```
@@ -32,7 +38,9 @@ The following steps are done on each release build
 $ npm install
 $ npm test
 $ gulp build:release
-$ npm run install:release
-$ gulp build:package
+($ npm run install:release)
+$ cd .release
+$ cd npm run startprod
+
 ```
 If any of the steps fail, the build will fail.
