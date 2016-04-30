@@ -1,29 +1,17 @@
-var webpack = require('webpack'),
-    path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    CopyWebpackPlugin = require('copy-webpack-plugin');
-
-module.exports = {
+///<reference path="../typings/browser.d.ts"/>
+///<reference path="../customTypings/webpack-merge.d.ts"/>
+var LiveReloadPlugin = require('webpack-livereload-plugin'),
+    webpack = require('webpack'),
+    path = require('path')
+export declare var baseConfig;
+baseConfig = {
   resolve: {
     extensions: ['', '.scss', '.ts', '.js', '.woff2', '.tff', '.eot', '.svg']
   },
-
-  /*plugins: [
-    //remove JQuery here when old-bootstap-javascript is no longer needed.
-    new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery"
-    })
-  ],*/
-  entry: './app/boot.ts',
-  output: {
-    path: __dirname + "/.release/app",
-    filename: "bundle.js"
-  },
-
-  devtool: 'source-map',
-
+  plugins: [
+    new LiveReloadPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     loaders: [
       {
@@ -44,4 +32,4 @@ module.exports = {
       { test: /\.svg$/,    loader: "file-loader" }
     ]
   }
-};
+}
