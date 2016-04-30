@@ -68,7 +68,7 @@ if (serverconfig.renderServerSide) {
         NODE_HTTP_PROVIDERS,
       ],
       async: true,
-      preboot: { appRoot: 'app' } //your top level app component selector, false to disable
+      preboot: serverconfig.preboot //your top level app component selector, false to disable
     };
 
     res.render(file, config);

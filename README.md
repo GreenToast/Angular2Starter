@@ -14,6 +14,7 @@ $ npm install -g typings
 Enable/Disable options in server/server-config.js for dev and production
 - (prodmode: false/true, is not working completely in client-side-code)
 - renderServerSide: false/true,
+- preboot: preboot-object, see config https://github.com/angular/universal/tree/master/modules/preboot
 - webWorker: false/true,
 
 ##Setup##

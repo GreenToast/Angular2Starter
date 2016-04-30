@@ -3,6 +3,7 @@ module.exports = {
         prodmode: false,
         renderServerSide: true,
         webWorker:true,
+        preboot: {appRoot : 'app'},
         baseUrl: 'http://localhost',
         port: 8080
     },
