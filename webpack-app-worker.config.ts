@@ -1,24 +1,19 @@
-var LiveReloadPlugin = require('webpack-livereload-plugin'),
-    webpack = require('webpack'),
-    path = require('path');
-var WORKER_CONFIG = {
-  resolve: {
-    extensions: ['', '.scss', '.ts', '.js', '.woff2', '.tff', '.eot', '.svg']
-  },
-
-  plugins: [
-    new LiveReloadPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ],
-  //entry: './app/boot.ts',
-  entry: './app/boot_worker.ts',
-  output: {
+const WORKER_APP_CONFIG = {
+  target: 'webworker',
+  entry: './app/boot_worker_app',
+   output: {
     path: __dirname + "/.build/app",
-    filename: "bundle.js"
+    filename: "worker_app_bundle.js"
   },
-
-  devtool: 'source-map',
-
+  /*get plugins() {
+    return [
+      VENDOR_DLL_REFERENCE_PLUGIN,
+      DEFINE_CONSTANTS_PLUGIN,
+    ];
+  } ,*/
+  resolve: {
+    extensions: ['', '.ts', '.js']
+  },
   module: {
     loaders: [
       {
@@ -40,4 +35,5 @@ var WORKER_CONFIG = {
     ]
   }
 };
-export = WORKER_CONFIG;
+
+export = WORKER_APP_CONFIG;

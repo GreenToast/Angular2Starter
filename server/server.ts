@@ -3,6 +3,7 @@ var port = process.env.port || devServer.port;
 //import * as http from "http";
 //import * as qs from "querystring";
 import * as webpackconfig from "../webpack.config";
+import * as worker_app_config from "../webpack-app-worker.config";
 import * as webpack from "webpack";
 import webpackMiddleware = require("webpack-dev-middleware");
 import history = require('connect-history-api-fallback');
@@ -83,7 +84,12 @@ else {
 }
 
 if (!serverconfig.prodmode) {
-  app.use(webpackMiddleware(webpack(webpackconfig)));
+  if(!serverconfig.webWorker){
+    app.use(webpackMiddleware(webpack(webpackconfig)));
+  }
+  else{
+    app.use(webpackMiddleware(webpack([webpackconfig,worker_app_config])));
+  }
 }
 else {
   app.use(express.static(APPROOT));
