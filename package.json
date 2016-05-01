@@ -28,8 +28,8 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
-    "@ngrx/devtools": "^1.3.3",
-    "@ngrx/store": "^1.3.3",
+    "@ngrx/devtools": "1.3.3",
+    "@ngrx/store": "1.3.3",
     "angular2": "2.0.0-beta.14",
     "bootstrap-sass": "^3.3.6",
     "copy-webpack-plugin": "^0.3.3",
