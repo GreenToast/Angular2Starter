@@ -21,6 +21,8 @@ $ npm start // compiles and starts a local dev server
 // unit tests
 $ npm run test
 
+KNOWN ISSUES: karma-tests have a problem with external htmls.
+
 // e2e-tests
 $ npm run e2e
 ```
