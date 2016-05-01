@@ -2,7 +2,8 @@ var gulp = require('gulp'),
 	del = require('del'),
     $ = require('gulp-load-plugins')( {lazy:true} ),
     sourcemaps = require('gulp-sourcemaps'),
-    ts = require('gulp-tsc');
+    ts = require('gulp-tsc')
+    webpack = require('webpack-stream');
     
 var serverConfig = require('./server/server.config');
 
@@ -47,15 +48,15 @@ gulp.task('build:frontend', ['compileWebpack'],function() {
         var bootconfig = require('./build/webpack-worker-boot-prod.config').WORKER_BOOT_CONFIG; 
         var appconfig = require('./build/webpack-worker-app-prod.config').WORKER_APP_CONFIG; 
         gulp.src('./app/boot_worker.ts')
-        .pipe($.webpack(bootconfig))
+        .pipe(webpack(bootconfig))
         .pipe(gulp.dest(dest + '/app'));
         return gulp.src('./app/boot_worker_app.ts')
-            .pipe($.webpack(appconfig))
+            .pipe(webpack(appconfig))
             .pipe(gulp.dest(dest + '/app'));
     }
     else{
         return gulp.src('./app/boot.ts')
-            .pipe($.webpack( require('./build/webpack-browser-prod.config').BROWSER_CONFIG))
+            .pipe(webpack( require('./build/webpack-browser-prod.config').BROWSER_CONFIG))
             .pipe(gulp.dest(dest + '/app'));
     }
 });

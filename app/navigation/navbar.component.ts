@@ -5,7 +5,8 @@ import { ROUTER_DIRECTIVES } from "angular2/router";
     selector: "nav-bar",
     templateUrl: "/navigation/navbar.html",    
     directives: [ROUTER_DIRECTIVES],
-    changeDetection:ChangeDetectionStrategy.OnPush
+    changeDetection:ChangeDetectionStrategy.OnPush,
+    styles:[require("../css/app.scss")]
 })
 export class NavbarComponent {
 }

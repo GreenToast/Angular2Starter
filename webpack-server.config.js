@@ -1,10 +1,16 @@
 var webpack = require('webpack');
 var path = require('path');
 
+const POSTCSS = function() {
+  return [
+    require('postcss-cssnext')
+  ]
+}    
+
 var defaultServerConfig = {
   resolve: {
-    root: path.join(__dirname, '/app'),
-    extensions: ['', '.ts', '.js']
+    root: path.join(__dirname, '/app'),    
+    extensions: ['', '.scss', '.ts', '.js', '.woff2', '.tff', '.eot', '.svg']
   },
   module: {
     noParse: [
@@ -12,10 +18,21 @@ var defaultServerConfig = {
       path.join(__dirname, 'angular2', 'bundles')
     ],
     loaders: [
-      // TypeScript
-      { test: /\.ts$/, loader: 'ts-loader' }
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader'
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['raw','sass','postcss']
+      },
+      { test: /\.(woff|woff2)$/,  loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+      { test: /\.ttf$/,    loader: "file-loader" },
+      { test: /\.eot$/,    loader: "file-loader" },
+      { test: /\.svg$/,    loader: "file-loader" }
     ]
   },
+  postcss: POSTCSS,
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(true)
   ],

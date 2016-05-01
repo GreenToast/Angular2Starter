@@ -3,6 +3,13 @@
 var LiveReloadPlugin = require('webpack-livereload-plugin'),
     webpack = require('webpack'),
     path = require('path')
+
+const POSTCSS = function() {
+  return [
+    require('postcss-cssnext')
+  ]
+}    
+
 export declare var baseConfig;
 baseConfig = {
   resolve: {
@@ -20,18 +27,15 @@ baseConfig = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: 'style!css'
+        loaders: ['raw','sass','postcss']
       },
       { test: /\.(woff|woff2)$/,  loader: "url-loader?limit=10000&mimetype=application/font-woff" },
       { test: /\.ttf$/,    loader: "file-loader" },
       { test: /\.eot$/,    loader: "file-loader" },
       { test: /\.svg$/,    loader: "file-loader" }
     ]
-  }
+  },
+  postcss: POSTCSS
 }
 export function stringifyConstants(config) {
   const stringifiedConstants = {};

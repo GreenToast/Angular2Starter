@@ -12,7 +12,8 @@ import {ROUTER_DIRECTIVES} from "angular2/router";
     </div>
     `
     ,
-     directives:[ROUTER_DIRECTIVES]
+     directives:[ROUTER_DIRECTIVES],
+     styles:[require("../css/app.scss")]
 })
 export class DashboardComponent {
 }

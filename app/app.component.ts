@@ -1,4 +1,3 @@
-
 import { Component } from "angular2/core";
 import { RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
 import { NavbarComponent } from "./navigation/navbar.component";
@@ -20,7 +19,9 @@ export class About { }
     <router-outlet></router-outlet>
 
   `,
-	directives: [NavbarComponent,ROUTER_DIRECTIVES]
+	directives: [NavbarComponent,ROUTER_DIRECTIVES],
+  styles:[require("./css/app.scss")]
+  
 })
 @RouteConfig([
 	{ path: '/', name: 'Dashboard', component: DashboardComponent, useAsDefault: true },
