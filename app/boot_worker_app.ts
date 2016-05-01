@@ -13,16 +13,16 @@ import {
 import { APP_BASE_HREF, Router } from 'angular2/router';
 import { AppComponent } from './app.component';
 
+if(ENABLEPRODMODE){
+  enableProdMode();
+}
+  
 platform(WORKER_APP_PLATFORM).asyncApplication(() => Promise.resolve([
   WORKER_APP_APPLICATION,
   WORKER_APP_ROUTER,
   provide(APP_BASE_HREF, { useValue: '/' }),
 ]))
 .then((appRef: ApplicationRef) => {  
-  const PROD:boolean = `${enableProdMode}`=='true';
-  if(PROD){
-    enableProdMode();
-  }
   return appRef.bootstrap(AppComponent, []);
 })
 .then((compRef: ComponentRef) => {

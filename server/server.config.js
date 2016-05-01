@@ -10,7 +10,7 @@ module.exports = {
     prodServer: {
         enableProdMode: true,
         renderServerSide: true,
-        webWorker:false,
+        webWorker:true,
         baseUrl: 'http://localhost',
         port: 8080
     }

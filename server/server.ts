@@ -1,5 +1,5 @@
 import { devServer, prodServer, Config } from "./server.config";
-var port = process.env.port || devServer.port;
+
 //import * as http from "http";
 //import * as qs from "querystring";
 import * as browser_config from "../webpack/webpack-browser.config";
@@ -30,8 +30,9 @@ import { AppComponent } from '../app/app.component';
 const app = express();
 const APPROOT = path.join(path.resolve(__dirname, '../app'));
 const IS_PRODUCTION_SERVER:boolean = !(process.argv[2]==="-dev");
-
 let serverconfig: Config = IS_PRODUCTION_SERVER?prodServer:devServer;
+
+var port = process.env.port || serverconfig.port;
 
 if (serverconfig.renderServerSide) {
   if (serverconfig.enableProdMode) {
@@ -60,7 +61,7 @@ if (serverconfig.renderServerSide) {
     let config = {
       directives: [AppComponent],
       platformProviders: [
-        provide(ORIGIN_URL, { useValue: devServer.baseUrl +':'+ port }),
+        provide(ORIGIN_URL, { useValue: serverconfig.baseUrl +':'+ serverconfig.port }),
         provide(BASE_URL, { useValue: baseUrl }),
       ],
       providers: [
