@@ -19,6 +19,7 @@
   "author": "dene",
   "license": "ISC",
   "dependencies": {
+    "webpack-stream": "^3.2.0"
   },
   "devDependencies": {
     "connect-history-api-fallback": "^1.2.0",

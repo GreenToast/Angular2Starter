@@ -2,7 +2,9 @@ var gulp = require('gulp'),
 	del = require('del'),
     $ = require('gulp-load-plugins')( {lazy:true} ),
     sourcemaps = require('gulp-sourcemaps'),
-    ts = require('gulp-tsc');
+    ts = require('gulp-tsc'),
+    webpack = require('webpack-stream');
+    
 
 var dest = '.release';
 
