@@ -19,7 +19,7 @@ dist/
 *.user
 *.sln.docstates
 !dev-server.js
-!app/app.css
+app/*/*.css
 app/*/*.js
 test/*/*.js
 
