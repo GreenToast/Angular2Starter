@@ -27,6 +27,7 @@
   "author": "dene",
   "license": "ISC",
   "dependencies": {
+    "gulp-sass": "^2.3.1",
     "postcss-cssnext": "^2.5.2",
     "postcss-loader": "^0.9.1",
     "raw-loader": "^0.5.1"
