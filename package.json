@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "typings install",
-    "build-server": "webpack --config webpack-server-dev.config.js",
+    "build-server": "gulp compileSass && webpack --config webpack-server-dev.config.js",
     "prestart": "npm run build-server",
     "server": "node dist/server/server.js -dev",
     "start": "npm run server",

@@ -20,7 +20,7 @@ export class About { }
 
   `,
 	directives: [NavbarComponent,ROUTER_DIRECTIVES],
-  styles:[require("./css/app.scss")]
+  //styles:[require("./css/app.scss")]
   
 })
 @RouteConfig([

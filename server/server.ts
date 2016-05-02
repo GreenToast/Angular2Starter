@@ -48,6 +48,10 @@ app.get('/*/*.html', function (request, response) {
   response.sendFile(APPROOT + '/' + request.params[0] + '/' + request.params[1] + '.html');
 });
 
+app.get('/*/*.css', function (request, response) {
+  response.sendFile(APPROOT + '/' + request.params[0] + '/' + request.params[1] + '.css');
+});
+
 //magic for serving right files for every route
 app.use(history({
 }));

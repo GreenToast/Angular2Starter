@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')( {lazy:true} ),
     sourcemaps = require('gulp-sourcemaps'),
     ts = require('gulp-tsc')
-    webpack = require('webpack-stream');
+    webpack = require('webpack-stream'),
+    sass = require('gulp-sass');
     
 var serverConfig = require('./server/server.config');
 
@@ -13,9 +14,11 @@ var paths = {
     e2eTs: ['test/e2e/**/*.ts'],
     e2eJs: ['test/e2e/**/*.js'],
     webPackTs:['webpack/webpack-*.ts'],
-    webPackJs:['webpack/webpack-*.js']
+    webPackJs:['webpack/webpack-*.js'],
+    scss:['app/css/**/*.scss']
 };
 var destpath = 'test/e2e/';
+var destcss = 'app/css';
 var destpathWebpack = 'build';
 
 gulp.task('clean:release', function(doneCb) {
@@ -33,6 +36,11 @@ gulp.task('build:server', function() {
 
 gulp.task('build:html', function() {
     return gulp.src(['**/*.html', '!node_modules', '!node_modules/**'])
+        .pipe(gulp.dest(dest));
+});
+
+gulp.task('build:html',['compileSass'], function() {
+    return gulp.src(['**/*.css', '!node_modules', '!node_modules/**'])
         .pipe(gulp.dest(dest));
 });
 /*
@@ -111,4 +119,10 @@ gulp.task('compileWebpack', function () {
 
 gulp.task('cleanE2e', function (doneCb) {
     return del(paths.e2eJs, doneCb);
+});
+
+gulp.task('compileSass',function(){
+    gulp.src(paths.scss)
+    .pipe(sass())
+    .pipe(gulp.dest(destcss));
 });
