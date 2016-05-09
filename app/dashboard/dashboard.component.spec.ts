@@ -3,20 +3,22 @@ import {
   describe,
   it,
   inject,
+  injectAsync,
   beforeEach,
-  beforeEachProviders,
-  TestComponentBuilder
-} from "angular2/testing";
-                     
-import {Router,LocationStrategy,Location} from "angular2/router";
-import {SpyLocation} from "angular2/src/mock/location_mock";
-import {MockLocationStrategy} from "angular2/src/mock/mock_location_strategy";
-import {RootRouter} from "angular2/src/router/router";
-import {RouteRegistry, ROUTER_PRIMARY_COMPONENT} from "angular2/src/router/route_registry";
-import {provide} from "angular2/core";
+  beforeEachProviders
+} from '@angular/core/testing';
+
+import { TestComponentBuilder, ComponentFixture } from '@angular/compiler/testing'
+import {Router} from '@angular/router-deprecated';
+import { LocationStrategy,Location} from '@angular/common';
+import {SpyLocation, MockLocationStrategy} from '@angular/common/testing';
+import {RootRouter} from '@angular/router-deprecated/src/router';
+import {RouteRegistry, ROUTER_PRIMARY_COMPONENT} from '@angular/router-deprecated';
+import {provide} from '@angular/core';
+import {AppComponent} from '../app.component';
 
 //load implementations that should be tested
-import {DashboardComponent} from "./dashboard.component.ts";
+import {DashboardComponent} from "./dashboard.component";
 
 
 describe("AppComponent", () => {

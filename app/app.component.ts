@@ -1,6 +1,6 @@
 
-import { Component } from "angular2/core";
-import { RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
+import { Component } from "@angular/core";
+import { RouteConfig, RouterOutlet, Route} from "@angular/router-deprecated";
 import { NavbarComponent } from "./navigation/navbar.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 
@@ -13,10 +13,13 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
     <router-outlet></router-outlet>
 
   `,
-	directives: [NavbarComponent,ROUTER_DIRECTIVES]
+	directives:[NavbarComponent,
+	RouterOutlet
+	]
 })
+
 @RouteConfig([
-	{ path: '/', name: 'Dashboard', component: DashboardComponent, useAsDefault: true }
+  new Route({path: '/', component: DashboardComponent, name: 'Dashboard'})
 ])
 export class AppComponent {
 

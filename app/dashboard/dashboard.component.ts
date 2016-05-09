@@ -1,10 +1,7 @@
-import {Component} from "angular2/core";
-import {ROUTER_DIRECTIVES} from "angular2/router";
+import { Component } from "@angular/core";
 
 @Component({
-	templateUrl:"dashboard/dashboard.component.html"
-    ,
-     directives:[ROUTER_DIRECTIVES]
+    template: require('./dashboard.component.html'),
 })
 export class DashboardComponent {
 }

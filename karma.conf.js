@@ -5,14 +5,11 @@ module.exports = function (config) {
         //jasmine2 is used by the karma-jasmine-runner
         frameworks: ['jasmine', 'es6-shim'],
         files: [
-            'test/vendors.ts',
-            'node_modules/zone.js/dist/jasmine-patch.js',
-            'test/test_index.js'
+            'test/spec-bundle.js',
         ],
         exclude: [],
         preprocessors: {
-            'test/vendors.ts': ['webpack', 'sourcemap'],
-            'test/test_index.js': ['webpack', 'sourcemap']
+            'test/spec-bundle.js': ['webpack', 'sourcemap']
         },
         webpack: {
             resolve: {
@@ -20,11 +17,6 @@ module.exports = function (config) {
                 extensions: ['', '.ts', '.js', '.json']
             },
             devtool: 'inline-source-map',
-            /*plugins:[new webpack.ProvidePlugin({
-                $: "jquery",
-                jQuery: "jquery",
-                "window.jQuery": "jquery"
-            })],*/
             module: {
                 loaders: [
                     {

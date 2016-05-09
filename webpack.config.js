@@ -4,7 +4,7 @@ var LiveReloadPlugin = require('webpack-livereload-plugin'),
 
 module.exports = {
   resolve: {
-    extensions: ['', '.scss', '.ts', '.js', '.woff2', '.tff', '.eot', '.svg']
+    extensions: ['', '.scss', '.ts', '.js', '.woff2', '.tff', '.eot', '.svg','.html']
   },
 
   plugins: [
@@ -24,6 +24,10 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'ts-loader'
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw-loader'
       },
       {
         test: /\.scss$/,
