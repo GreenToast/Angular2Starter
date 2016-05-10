@@ -4,13 +4,14 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
 
-import { platform, provide, ApplicationRef, ComponentRef, Injector, enableProdMode } from 'angular2/core';
+import { platform, provide, ApplicationRef, ComponentRef, Injector, enableProdMode } from '@angular/core';
+
 import {
   WORKER_APP_PLATFORM,
   WORKER_APP_APPLICATION,
   WORKER_APP_ROUTER
-} from 'angular2/platform/worker_app';
-import { APP_BASE_HREF, Router } from 'angular2/router';
+} from '@angular/platform-browser/src/worker_app';
+import { APP_BASE_HREF, Router } from '@angular/router-deprecated';
 import { AppComponent } from './app.component';
 
 if(ENABLEPRODMODE){

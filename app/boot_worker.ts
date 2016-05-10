@@ -4,14 +4,14 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
 
-import { platform, provide } from 'angular2/core';
+import { platform, provide } from '@angular/core';
 import {
   WebWorkerInstance,
   WORKER_RENDER_APP,
   WORKER_RENDER_PLATFORM,
   WORKER_SCRIPT,
   WORKER_RENDER_ROUTER
-} from 'angular2/platform/worker_render';
+} from '@angular/platform-browser/src/worker_render';
 
 const workerScriptUrl = URL.createObjectURL(new Blob([`
   var importScripts_ = this.importScripts;
