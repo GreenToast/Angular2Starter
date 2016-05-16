@@ -29,7 +29,7 @@ export const personsReducer:Reducer<Person[]> = (state=[], {type,payload}) => {
             return [...state.concat(person)];
         }
         case REMOVE_PERSON:{
-             let x = state.filter((_person:Person)=> person.firstName==_person.firstName && person.lastName==_person.lastName);
+             let x = state.filter((_person:Person)=> !(person.firstName==_person.firstName && person.lastName==_person.lastName));
              return x;
         }
     }

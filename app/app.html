@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="col-sm-4 gray text-center">
+            <table>
+                <tr>
+                    <th>firstname</th>
+                    <th>lastname</th>
+                    <th>Remove</th>
+                </tr>
+                <tr *ngFor="let person of persons|async">
+                    <td>{{person.firstName}}</td>
+                    <td>{{person.lastName}}</td>
+                    <td><button class="btn btn-default" (click)="onRemove(person)">Remove</button></td>
+                </tr>
+            </table>
+            <button class="btn btn-default" (click)="onAdd()">Add</button>
+        </div>
+    </div>
+</div>
+<ngrx-devtools toggle-command="ctrl-k" position-command="ctrl-e"></ngrx-devtools>

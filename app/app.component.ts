@@ -1,32 +1,28 @@
 import { Component } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { Observable } from "RxJS/Observable";
+import { Observable } from "rxjs/Rx";
 import { Person, ExampleFriends } from "./reducer/personsData";
+import { AddPersonAction, RemovePersonAction } from "./reducer/personsReducer";
+import { Devtools } from "@ngrx/devtools";
 @Component({
 	selector: 'app',
-	template: `
-
-    <div class="panel panel-default">
-			<div class="panel-body">
-					<div class="col-sm-4 gray text-center">
-							<table>
-							<tr><th>firstname</th></tr>
-							<tr *ngFor="let person of (persons | async)">
-								<td>person.firstName</td>
-								<td>person.lastName</td>
-							</tr>
-							<button class="btn btn-default">Add</button>
-					</div>
-			</div>
-	</div>
-
-  `
+	template: require('./app.html'),
+	directives: [Devtools]
 })
 export class AppComponent {
-		persons: Observable<Person[]> = Observable.create(ExampleFriends);
+	
+		persons:Observable<Person[]>;
 		
-		//appStateStore.select('persons');
-		constructor(appStateStore:Store<any>){
-			
+		constructor(private appStateStore:Store<any>){
+			this.persons = <Observable<Person[]>>this.appStateStore.select('persons');			
+		}
+		
+		onAdd(){
+			let randomPerson = ExampleFriends[Math.floor(Math.random() * ExampleFriends.length)]; 
+			this.appStateStore.dispatch(new AddPersonAction(randomPerson));
+		}
+		
+		onRemove(person:Person){
+			this.appStateStore.dispatch(new RemovePersonAction(person));
 		}
 }
