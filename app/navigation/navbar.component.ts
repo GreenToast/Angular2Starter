@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from "@angular/core";
-import { ROUTER_DIRECTIVES } from "@angular/router-deprecated";
+import { ROUTER_DIRECTIVES } from "@angular/router";
 
 @Component({
     selector: "nav-bar",

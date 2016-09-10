@@ -1,8 +1,7 @@
 
 import { Component } from "@angular/core";
-import { RouteConfig, RouterOutlet, Route} from "@angular/router-deprecated";
+import { ROUTER_DIRECTIVES } from "@angular/router";
 import { NavbarComponent } from "./navigation/navbar.component";
-import { DashboardComponent } from "./dashboard/dashboard.component";
 
 
 @Component({
@@ -14,13 +13,21 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 
   `,
 	directives:[NavbarComponent,
-	RouterOutlet
+	ROUTER_DIRECTIVES
 	]
 })
-
-@RouteConfig([
-  new Route({path: '/', component: DashboardComponent, name: 'Dashboard'})
-])
 export class AppComponent {
+
+
+	public comments = [
+        {
+            headline: "I wanted to ask a question",
+            text: "My example text"
+        },
+        {
+            headline: "Even the best thing was fine",
+            text: "No one knew what was coming"
+        }
+    ]
 
 }

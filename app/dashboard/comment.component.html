@@ -1,0 +1,27 @@
+<div *ngIf="edit">
+    <div [formGroup]="commentForm">
+        <label >Headline:</label>
+        <input [formControlName]="'headline'" id="headline" type="text">
+        <div *ngIf="!commentForm.controls.headline.valid" class="alert alert-danger"> Headline is required</div>
+        <label for="text">Text:</label>
+        <input [formControlName]="'text'" id="text" type="text">
+        <div *ngIf="!commentForm.controls.text.valid" class="alert alert-danger" >Text is required</div>
+    </div> 
+    <button (click)="submit(commentForm.value)">save</button>
+</div>
+<div *ngIf="!edit">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="album-banner-heading">{{comment.headline}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Text</label>
+        </div>
+        <div class="col-sm-10">
+            <span>{{comment.text}}</span>
+        </div>
+    </div>
+</div>
+<button (click)="toggleEdit()">edit</button>
